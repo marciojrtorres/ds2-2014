@@ -1,0 +1,13 @@
+manter/gerenciar o "estado"
+*as informações trocadas entre
+cliente e servidor
+
+é um grande problema para web
+
+A WEB É STATELESS (SEM ESTADO)
+
+Soluções possíveis:
+Usar controle de Sessão (ID, cookies);
+Repassar os parâmetros;
+
+Simulação de Estado

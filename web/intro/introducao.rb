@@ -31,6 +31,7 @@ get '/contatos/novo' do
 end
 
 post '/contatos/novo' do
+    puts params.inspect
     c = Contato.new 
     c.nome = params[:nome]
     c.telefone = params[:telefone]

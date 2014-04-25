@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- doctype=html5 -->
+<html lang="pt-br">
+<head>
+    <!--<meta charset="ISO-8859-1">-->
+    <meta charset="utf-8">
+    <meta name="description" content="introducao ao ruby/sinatra">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rede Social Sem Nome</title>
+</head>
+<body>
+    
+    <h1>Registre-se</h1>
+
+    <h2>3ª Etapa</h2>
+
+    <form method="post" action="/concluir_registro">
+        <input type="hidden" name="nome"
+            value="<%=@nome%>">
+
+        <input type="hidden" name="idade"
+            value="<%=@idade%>">
+
+        <input type="hidden" name="email"
+            value="<%=@email%>">
+
+        <input type="hidden" name="estilos"
+            value="<%=@estilos%>">
+
+        <input type="hidden" name="artista_preferido"
+            value="<%=@artista_preferido%>">
+
+        <label>Senha:</label>
+        <input type="text" name="senha">
+        <br>
+        <label>Pergunta secreta:</label>
+        <input type="text" name="pergunta_secreta">
+        <br>        
+        <input type="submit" value="Concluir">
+    </form>
+
+</body>
+</html>
