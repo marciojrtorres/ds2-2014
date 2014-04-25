@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- doctype=html5 -->
+<html lang="pt-br">
+<head>
+    <!--<meta charset="ISO-8859-1">-->
+    <meta charset="utf-8">
+    <meta name="description" content="introducao ao ruby/sinatra">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edita Contato</title>
+</head>
+<body>
+    
+    <h1>Edita Contato</h1>
+
+    <a href="/">Home</a>
+    <a href="/contatos">Contatos</a>
+
+    <form method="post">
+        <label for="nome">Nome:</label>
+        <input type="hidden" name="nome_antigo" 
+                value="<%=@contato.nome%>">
+        <input type="text" autofocus
+                id="nome" name="nome" 
+                size="35" maxlength="35"
+                value="<%=@contato.nome%>">
+        <br>
+        <label for="telefone">Telefone:</label>
+        <input type="tel"
+                id="telefone" name="telefone" 
+                size="11" maxlength="11"
+                value="<%=@contato.telefone%>">
+        <br>
+        <label for="email">E-mail:</label>
+        <input type="email"
+                id="email" name="email" 
+                size="55" maxlength="55"
+                value="<%=@contato.email%>"> 
+        <br>
+        <input type="reset" value="Limpar">
+        <input type="submit" value="Salvar">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- doctype=html5 -->
+<html lang="pt-br">
+<head>
+    <!--<meta charset="ISO-8859-1">-->
+    <meta charset="utf-8">
+    <meta name="description" content="introducao ao ruby/sinatra">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista Contatos</title>
+</head>
+<body>
+    
+    <h1>Lista Contatos</h1>
+
+    <a href="/">Home</a>
+    <a href="/contatos">Contatos</a>
+    <a href="/contatos/novo">Novo contato</a>
+
+    <br>
+
+    <table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% for c in @contatos %>
+        <tr>
+            <td> <%= c.nome %> </td>
+            <td> <%= c.telefone %> </td>
+            <td> <%= c.email %> </td>
+            <td>
+                <a href="/contatos/edita?nome=<%= c.nome %>">
+                    Editar
+                </a> 
+        <!--<a href="/contatos/exclui/<%= c.nome %>">-->
+        <a href="/contatos/exclui?nome=<%= c.nome %>">
+            Excluir
+        </a>
+            </td>
+        </tr>
+    <% end %>
+    </tbody>
+    </table>
+
+</body>
+</html>
