@@ -16,9 +16,10 @@
     <a href="/contatos">Contatos</a>
 
     <form method="post">
+        <input type="hidden" name="codigo" 
+                value="<%=@contato.codigo%>">
+                
         <label for="nome">Nome:</label>
-        <input type="hidden" name="nome_antigo" 
-                value="<%=@contato.nome%>">
         <input type="text" autofocus
                 id="nome" name="nome" 
                 size="35" maxlength="35"

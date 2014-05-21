@@ -1,0 +1,13 @@
+h1 {
+    font-size: 16pt;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+input[type=submit] {
+    margin-top: 20px;
+    display: block;
+}

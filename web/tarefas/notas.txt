@@ -1,0 +1,18 @@
+backend: programação web para o servidor
+código baseado na linguagem que roda no servidor
+ex.: DS1 -> PHP (Servidor Apache)
+     DS2 -> Ruby (Servidor Webrick)
+
+frontend: programação web para o cliente (navegador)
+
+Web Design (design para web / design gráfico / publicidade)
+
+Interaction Design (design da interação / html/css/javascript) IxD
+
+User Experience Design (design da experiência do usuário) UX
+
+framework frontend:
+http://getbootstrap.com/
+
+Design de formulários:
+http://www.sitepoint.com/store/fancy-form-design/

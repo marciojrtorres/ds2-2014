@@ -1,0 +1,77 @@
+<!doctype html>
+
+<!-- CROSSBROWSER: acessível em mais de um browser -->
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Tarefas</title>
+    <link rel="stylesheet" type="text/css" 
+          href="/estilo.css">
+
+    <!-- media query: consultar a mídia -->
+    <style type="text/css">
+    span.urgente {
+        background-color: red;
+        padding: 2px;
+    }
+
+    @media (max-width: 400px) {
+        span.desktop {
+            display: none;
+        }
+        span.mobile {
+            display: inline-block;
+        }
+    }
+    @media (min-width: 401px) {
+        span.desktop {
+            display: inline-block;
+        }
+        span.mobile {
+            display: none;
+        }
+    }
+    </style>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    
+    <h1>Tarefas</h1>
+
+    <table>
+        <thead> 
+            <th>Título</th>
+            <th>Prioridade</th>
+            <th>Data</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <% for t in @tarefas %>
+            <tr>
+                <td>
+                    <a href="/tarefa/<%= t.titulo %>">
+                    <%= t.titulo %>
+                    </a>
+                </td>
+                <td>
+
+                    <span class="desktop">
+                        <%= t.prioridade %>
+                    </span>
+                    
+            <span class="mobile <%= t.prioridade.downcase %>">
+                <%= t.prioridade[0] %>
+            </span>
+
+                </td>
+
+                <td><%= t.data.strftime('%d/%m/%Y') %></td>
+                <td><%= t.status %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+</body>
+</html>

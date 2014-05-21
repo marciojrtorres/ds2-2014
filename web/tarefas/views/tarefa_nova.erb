@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Tarefas</title>
+    <link rel="stylesheet" type="text/css" 
+          href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" 
+          href="/css/bootstrap-theme.min.css">
+</head>
+<body>
+    
+    <div class="container">
+
+    <h1>Nova Tarefa</h1>
+
+    <form method="post" role="form">
+        
+        <div class="form-group">
+            <input class="form-control"
+            type="text" name="titulo" maxlength="30"
+            placeholder="Título da Tarefa">
+        </div>
+
+        <div class="form-group">
+            <label>Descrição:</label>
+            <textarea name="descricao" 
+            class="form-control" rows="4" cols="30"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Prioridade:</label>
+            <select name="prioridade" class="form-control">
+                <option>Baixa</option>
+                <option selected>Normal</option>
+                <option>Urgente</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Salvar">
+    </form>
+
+    </div>
+
+    <script type="text/javascript"
+            src="/js/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+            src="/js/bootstrap.min.js">
+    </script>
+
+</body>
+</html>

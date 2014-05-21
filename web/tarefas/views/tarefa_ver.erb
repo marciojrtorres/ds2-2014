@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Tarefas</title>
+    <link rel="stylesheet" type="text/css" 
+          href="/estilo.css">
+</head>
+<body>
+    
+    <h1>Tarefa</h1>
+
+    <h2><%= @tarefa.titulo %></h2>
+
+    <p><%= @tarefa.descricao %></p>
+
+    <p><%= @tarefa.data %></p>
+
+    <p><%= @tarefa.prioridade %></p>
+
+    <p><%= @tarefa.status %></p>
+
+    <% if @tarefa.pode_comecar? %>
+    <a href="/tarefa/comeca/<%= @tarefa.titulo %>">
+        Começar
+    </a><!-- Andamento -->
+    <% end %>
+
+    <% if @tarefa.pode_suspender? %>
+    <a href="/tarefa/suspende/<%= @tarefa.titulo %>">
+    Suspender</a> <!-- Suspensa -->
+    <% end %>
+
+    <% if @tarefa.pode_retomar? %>
+    <a href="/tarefa/retoma/<%= @tarefa.titulo %>">
+    Retomar</a>   <!-- Andamento -->
+    <% end %>
+
+    <% if @tarefa.pode_cancelar? %>
+    <a href="/tarefa/cancela/<%= @tarefa.titulo %>">
+    Cancelar</a>  <!-- Cancelada -->
+    <% end %>
+
+    <% if @tarefa.pode_concluir? %>
+    <a href="/tarefa/conclui/<%= @tarefa.titulo %>">
+    Concluir</a>  <!-- Concluida -->
+    <% end %>
+
+    <a href="" class="excluir">Excluir</a>
+
+</body>
+</html>

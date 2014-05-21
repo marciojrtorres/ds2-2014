@@ -35,11 +35,10 @@
             <td> <%= c.telefone %> </td>
             <td> <%= c.email %> </td>
             <td>
-                <a href="/contatos/edita?nome=<%= c.nome %>">
-                    Editar
-                </a> 
-        <!--<a href="/contatos/exclui/<%= c.nome %>">-->
-        <a href="/contatos/exclui?nome=<%= c.nome %>">
+        <a href="/contatos/edita?codigo=<%= c.codigo %>">
+            Editar
+        </a>         
+        <a href="/contatos/exclui?codigo=<%= c.codigo %>">
             Excluir
         </a>
             </td>
