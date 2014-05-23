@@ -1,23 +1,17 @@
 # encoding: UTF-8
-# encoding: Windows-1252
-# encoding: CP-1252
-# CRUD: CREATE, READ, UPDATE, DELETE
-# ESTADO
-
-# TABELA == CLASSE
-# REGISTRO == OBJETO
-# CAMPOS == PROPRIEDADES
 
 require 'sinatra'
 require 'mysql'
 
 class Contato
     attr_accessor :codigo, :nome,
-                  :telefone, :email  
+                  :telefone, :email 
+
+    attr_reader :erros
 
     def salva
         # host, usuario, senha, banco
-        db = Mysql.new 'localhost', 'root', 'root', 'agenda'
+        db = Mysql.new '127.0.0.1', 'root', 'root', 'agenda'
 
         sql = nil
 
@@ -31,13 +25,14 @@ class Contato
                   "WHERE codigo = #{@codigo}"
         end
 
+
         db.query sql
 
         db.close # as conexoes devem ser fechadas
     end
 
     def Contato.lista
-        db = Mysql.new 'localhost', 'root', 'root', 'agenda'
+        db = Mysql.new '127.0.0.1', 'root', 'root', 'agenda'
 
         sql = "SELECT * FROM contatos"
 
@@ -62,7 +57,7 @@ class Contato
     end
 
     def Contato.exclui(codigo)
-        db = Mysql.new 'localhost', 'root', 'root', 'agenda'
+        db = Mysql.new '127.0.0.1', 'root', 'root', 'agenda'
 
         db.query "DELETE FROM contatos WHERE codigo = #{codigo}"
 
@@ -70,7 +65,7 @@ class Contato
     end
 
     def Contato.seleciona(codigo)
-        db = Mysql.new 'localhost', 'root', 'root', 'agenda'
+        db = Mysql.new '127.0.0.1', 'root', 'root', 'agenda'
 
         rs = db.query "SELECT * FROM contatos WHERE codigo = #{codigo}"
 
@@ -89,6 +84,19 @@ class Contato
         return contato   
     end
 
+    def valido?
+        @erros = []
+
+        if @nome.length < 4
+            @erros << "Nome invalido: deve ter pelo menos 4 caracteres"
+        end
+
+        if (@telefone =~ /^\d{8}$/).nil?
+            @erros << "Telefone invalido: deve ter 8 digitos"
+        end
+        # expressões regulares     
+        @erros.empty?  
+    end
 
     def to_s
         @nome
@@ -108,19 +116,22 @@ get '/contatos' do
 end
 
 get '/contatos/novo' do
+    @contato = Contato.new
     erb :novo
 end
 
 post '/contatos/novo' do
+    @contato = Contato.new 
+    @contato.nome = params[:nome]
+    @contato.telefone = params[:telefone]
+    @contato.email = params[:email]    
 
-    c = Contato.new 
-    c.nome = params[:nome]
-    c.telefone = params[:telefone]
-    c.email = params[:email]    
-
-    c.salva
-
-    "Contato #{c.nome} salvo com sucesso"
+    if @contato.valido?
+        @contato.salva
+        redirect '/contatos/lista'   
+    else
+        erb :novo
+    end
 end
 
 get '/contatos/lista' do
@@ -152,7 +163,7 @@ post '/contatos/edita' do
     c.nome = params[:nome]
     c.telefone = params[:telefone]
     c.email = params[:email] 
-
+    
     c.salva
 
     redirect '/contatos/lista'
