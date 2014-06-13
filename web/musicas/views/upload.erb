@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <title>Upload de Músicas</title>
+</head>
+<body>
+    
+    <a href="/">Home</a>
+
+    <h1>Upload de Músicas</h1>
+
+    <% if @mensagem %>
+        <strong>
+            <%= @mensagem %>
+        </strong>
+    <% end %>
+
+    <!-- para enviar arquivos deve-se setar o enctype -->
+    <form method="post" enctype="multipart/form-data">
+        <label>Música:</label>
+        <input type="file" name="arquivo">
+        <input type="submit" value="VAI!">
+    </form>
+
+</body>
+</html>

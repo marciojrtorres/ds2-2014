@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <title>Músicas</title>
+</head>
+<body>
+    
+    <a href="/">Home</a>
+
+    <h1>Músicas</h1>
+
+    <% if @mensagem %>
+        <strong>
+            <%= @mensagem %>
+        </strong>
+    <% end %>
+
+    <% Dir.foreach('public/uploads').each do |musica| 
+        next if musica == '.' or musica == '..' # continue
+        %>
+
+        <%= musica %>        
+        <br>
+        <audio src="/uploads/<%= musica %>" controls>
+        </audio>
+        
+        <br><br>
+    <% end %>
+
+</body>
+</html>
