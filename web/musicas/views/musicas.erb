@@ -19,17 +19,31 @@
         </strong>
     <% end %>
 
-    <% Dir.foreach('public/uploads').each do |musica| 
-        next if musica == '.' or musica == '..' # continue
-        %>
-
-        <%= musica %>        
-        <br>
-        <audio src="/uploads/<%= musica %>" controls>
-        </audio>
+    <form>
+        <label>Ordem
+            <select name="ordem"
+                onchange="this.form.submit()">
+                <option>
+                    upload
+                </option>
+<option <%= 'selected' if @ordem == 'A-Z' %>>
+    A-Z
+</option>
+<option <%= 'selected' if @ordem == 'Z-A' %>>
+    Z-A
+</option>
+            </select>
+        </label>        
         
-        <br><br>
+    </form>
+
+    <ul>
+    <% for musica in @musicas %>
+        <li>
+        <%= musica.nome %>        
+        </li>
     <% end %>
+    </ul>
 
 </body>
 </html>
