@@ -9,6 +9,10 @@ require_relative 'tarefa'
 
 tarefas = []
 
+get '/' do
+    "Minha tela inicial"
+end
+
 get '/tarefa/nova' do
     erb :tarefa_nova
 end
