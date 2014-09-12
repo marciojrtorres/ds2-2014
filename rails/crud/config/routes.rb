@@ -1,30 +1,15 @@
 Rails.application.routes.draw do
-  get 'frase/todas'
+  resources :alunos
 
-  get 'frase/dodia' => 'frase#random'
 
-  get 'frases' => 'frase#todas'
-
-  get 'frase/ver/:numero' => 'frase#ver'
-
-  get 'frase/busca/:termo' => 'frase#busca'
-
-  # rails generate controller home index
-  get 'home/index'
+  # crud de livros
+  resources :livros
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-  root 'home#index' # rota raiz '/'
-  # home -> controlador -> home_controller
-  # index -> action -> def index
-
-  get 'teste' => 'home#testando'
-
-  get 'exemplo' => 'home#testando'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

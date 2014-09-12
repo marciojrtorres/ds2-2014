@@ -16,12 +16,23 @@ class FraseController < ApplicationController
         end
     end
 
-
     def todas
         @todas = @@frases
     end
 
     def random
         @frase = @@frases.sample
+    end
+
+    def ver
+        @numero = params[:numero].to_i
+        @frase = @@frases[@numero]
+    end
+
+    def busca
+        @termo = params[:termo]
+        @busca = @@frases.find_all do |f|
+            f.downcase.include? @termo.downcase
+        end
     end
 end
