@@ -1,0 +1,22 @@
+<h2>Novo Filme</h2>
+
+<% if @filme.errors.any? %>
+
+    <% @filme.errors.full_messages.each do |m| %>
+
+        <%= m %>
+
+    <% end %>
+
+<% end %>
+
+
+<%= form_for @filme do |f| %>
+
+    <%= f.label 'Titulo' %>
+
+    <%= f.text_field :titulo, maxlength: 30 %>
+
+    <%= f.submit 'Salvar' %>
+
+<% end %>

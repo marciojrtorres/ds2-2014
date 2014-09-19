@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :alunos
 
-
-  # crud de livros
-  resources :livros
+  # varias rotas crud
+  resources :filmes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

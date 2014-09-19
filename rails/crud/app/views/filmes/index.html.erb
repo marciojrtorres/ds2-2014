@@ -1,0 +1,19 @@
+<h2>Filmes</h2>
+
+<% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+<% end %>
+
+<% @filmes.each do |f| %>
+
+    <%= link_to f.titulo, filme_path(f) %>
+
+    <%= link_to "Excluir", f, method: :delete %>
+
+    <%= link_to "Editar", edit_filme_path(f) %>
+
+    <br><br>
+
+<% end %>
+
+<%= link_to "Novo Filme", new_filme_path %>

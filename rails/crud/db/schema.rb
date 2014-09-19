@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912113759) do
+ActiveRecord::Schema.define(version: 20140919113307) do
 
   create_table "alunos", force: true do |t|
     t.string   "nome"
@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(version: 20140912113759) do
     t.datetime "updated_at"
   end
 
-  create_table "livros", force: true do |t|
+  create_table "filmes", force: true do |t|
     t.string   "titulo",     limit: 30
-    t.integer  "ano"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

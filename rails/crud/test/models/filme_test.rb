@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LivroTest < ActiveSupport::TestCase
+class FilmeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
